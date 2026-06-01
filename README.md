@@ -13,7 +13,7 @@ This repo is designed for the "AI Ourselves" theme:
 
 ## What is inside
 
-- Custom agents in `.github/agents/` for Copilot Chat handoffs, plus native slash commands for quick idea generation, planning, and storytelling.
+- Custom agents in `.github/agents/` for Copilot Chat handoffs and quick idea generation, planning, and storytelling.
 - Ready-to-run sample code for a Foundry model call and an agent-service call.
 - A 30-minute live-demo path with copy-ready steps.
 - Starter ideas that help teams choose a direction fast.
@@ -48,7 +48,7 @@ This repo is designed for the "AI Ourselves" theme:
 3. Validate with `samples/`.
 4. Move to the advanced docs in `docs/` if you want to deepen the implementation.
 
-Tip: open the Command Palette and run “Chat: Open Customizations” to browse the custom agents and prompt files this kit ships.
+Tip: open the Command Palette and run “Chat: Open Customizations” to browse the custom agents this kit ships.
 
 ## Next-level paths
 
