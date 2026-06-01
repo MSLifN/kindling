@@ -5,7 +5,7 @@ A lightweight assistant that turns messy meeting notes into concise action items
 
 ## Why it fits
 - Clear business impact
-- Easy for judges to understand
+- Easy for a non-technical audience to follow
 - Strong demo story with one simple input and one useful output
 
 ## Demo angle

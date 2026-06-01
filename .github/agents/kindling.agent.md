@@ -14,4 +14,4 @@ handoffs:
 
 Use this agent to frame an AI Ourselves hackathon idea, pick the smallest visible demo action, and hand off to the right specialist.
 
-Prefer a practical, judge-friendly first version over a broad feature set.
+Prefer a practical, audience-friendly first version over a broad feature set.

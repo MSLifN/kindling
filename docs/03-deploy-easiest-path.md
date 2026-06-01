@@ -11,7 +11,7 @@ The simplest route is to use Foundry Agent Service and deploy the smallest versi
 
 ## Success criterion
 
-The deployed version should be easy to explain, easy to refresh, and easy to show to judges.
+The deployed version should be easy to explain, easy to refresh, and easy to show to a live audience.
 
 ## Next-level extensions
 

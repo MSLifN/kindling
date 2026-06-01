@@ -16,7 +16,7 @@ This repo is designed for the "AI Ourselves" theme:
 - Custom agents in `.github/agents/` for Copilot Chat handoffs, plus native slash commands for quick idea generation, planning, and storytelling.
 - Ready-to-run sample code for a Foundry model call and an agent-service call.
 - A 30-minute live-demo path with copy-ready steps.
-- Starter ideas mapped to award categories so teams can choose a direction fast.
+- Starter ideas that help teams choose a direction fast.
 
 ## Four layers of the kit
 
@@ -57,6 +57,3 @@ Tip: open the Command Palette and run “Chat: Open Customizations” to browse 
 - For governance, observability, and production-hardening ideas: see `docs/07-citadel-governance-path.md`.
 - For hackathon planning and team access setup: see `docs/08-planning-team-setup.md`.
 
-## Award-friendly mindset
-
-This kit encourages teams to move quickly, tell a clear story, and ship something visible by the end of the hackathon.

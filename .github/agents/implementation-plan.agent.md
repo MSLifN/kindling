@@ -4,7 +4,7 @@ tools: ['search', 'codebase']
 handoffs:
   - label: Draft the demo story
     agent: demo-storyteller
-    prompt: Turn this plan into a 30-second pitch and a judge-friendly story.
+    prompt: Turn this plan into a 30-second pitch and an audience-friendly story.
 ---
 
 # Implementation Plan
