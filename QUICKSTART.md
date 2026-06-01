@@ -4,9 +4,10 @@ This is the fastest path to a visible demo for a Microsoft hackathon slot.
 
 ## 0. Before you start (2 minutes)
 
-- Open the repo in VS Code.
-- Install the recommended extensions.
+- Open the repo in VS Code and follow the setup steps in `README.md`.
+- Install the recommended extensions from `.vscode/extensions.json`.
 - Copy `.env.sample` to `.env`.
+- Install the Python dependencies with `py -3.12 -m pip install -r requirements.txt`.
 
 ## 1. Choose a starter idea (3 minutes)
 
@@ -24,8 +25,8 @@ Use the agent prompts in `agents/` to:
 
 ## 3. Run the hello samples (5 minutes)
 
-- `samples/hello-foundry-py/` to confirm model access
-- `samples/hello-agent-py/` to confirm agent-service flow
+- `py -3.12 samples/hello-foundry-py/app.py` to confirm model access
+- `py -3.12 samples/hello-agent-py/app.py` to confirm agent-service flow
 
 ## 4. Vibe-code the core flow (10 minutes)
 
@@ -38,6 +39,10 @@ Use Copilot + Foundry Toolkit to build:
 
 Follow `docs/03-deploy-easiest-path.md` to launch the simplest Foundry Agent Service deployment.
 
-## 6. Demo script (30-second pitch)
+## 6. Troubleshooting
+
+If the sample does not run, start with `TROUBLESHOOTING.md`.
+
+## 7. Demo script (30-second pitch)
 
 "This is an AI tool for ourselves. It helps us move from idea to prototype in minutes, using Copilot and Foundry to build something practical and showable."
