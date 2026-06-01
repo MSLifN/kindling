@@ -5,7 +5,14 @@ A tiny sample for validating a Foundry model call.
 ## What to do
 
 1. Copy `.env.sample` from the repo root to `.env`.
-2. Fill in your Foundry endpoint and deployment values.
-3. Run the sample with Python.
+2. Fill in `AZURE_OPENAI_ENDPOINT`, `AZURE_OPENAI_API_KEY`, and `AZURE_OPENAI_DEPLOYMENT_NAME`.
+3. Install dependencies with `py -3.12 -m pip install -r requirements.txt`.
+4. Run the sample with:
 
-This is intentionally tiny so it can be used as a live-demo confidence check.
+   ```powershell
+   py -3.12 samples/hello-foundry-py/app.py
+   ```
+
+## Expected result
+
+You should see a real chat completion from your Azure OpenAI deployment, not just a placeholder message.

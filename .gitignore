@@ -1,0 +1,21 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+.pytest_cache/
+
+# Environment files
+.env
+.env.*
+!.env.sample
+
+# Local tooling
+node_modules/
+
+# Azure local state
+.azure/*
+!.azure/.gitignore
+!.azure/config.json

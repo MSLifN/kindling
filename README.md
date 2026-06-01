@@ -29,9 +29,17 @@ This repo is designed for the "AI Ourselves" theme:
 
 1. Open this folder in VS Code.
 2. Install the recommended extensions from .vscode/extensions.json.
-3. Copy .env.sample to .env and fill in the required values.
-4. Run the samples in the `samples/` folder to confirm your local setup.
-5. Start with `QUICKSTART.md` for the stage-ready demo path.
+   - Terminal option:
+     ```powershell
+     Get-Content .\.vscode\extensions.json -Raw | ConvertFrom-Json | Select-Object -ExpandProperty recommendations | ForEach-Object { code --install-extension $_ }
+     ```
+     If `code` is not on PATH, run “Shell Command: Install 'code' command in PATH” once in VS Code first.
+3. Copy `.env.sample` to `.env` and fill in the required values.
+4. Install the Python dependencies with `py -3.12 -m pip install -r requirements.txt`.
+5. Run the samples:
+   - `py -3.12 samples/hello-foundry-py/app.py`
+   - `py -3.12 samples/hello-agent-py/app.py`
+6. Start with `QUICKSTART.md` for the stage-ready demo path.
 
 ## Recommended flow
 
@@ -45,6 +53,7 @@ This repo is designed for the "AI Ourselves" theme:
 - For developer experiments: see `docs/05-agent-framework-next-level.md`.
 - For Azure deployment and landing-zone thinking: see `docs/06-azure-ai-landing-zone-azd.md`.
 - For governance, observability, and production-hardening ideas: see `docs/07-citadel-governance-path.md`.
+- For hackathon planning and team access setup: see `docs/08-planning-team-setup.md`.
 
 ## Award-friendly mindset
 
