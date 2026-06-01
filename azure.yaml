@@ -1,0 +1,6 @@
+name: kindling
+metadata:
+  template: kindling@0.0.1
+infra:
+  provider: bicep
+  path: infra
