@@ -1,4 +1,4 @@
-# Copilot instructions for Kindling
+# GitHub Copilot instructions for Kindling
 
 This repository is a hackathon starter kit.
 
@@ -13,15 +13,15 @@ This repository is a hackathon starter kit.
 1. Start with a clear user problem.
 2. Use a minimal, observable flow.
 3. Keep the solution easy to explain in one sentence.
-4. Favor Foundry + Copilot workflows that can be demonstrated locally and deployed later.
+4. Favor Foundry + GitHub Copilot workflows that can be demonstrated locally and deployed later.
 
-## Copilot custom agents
+## GitHub Copilot custom agents
 
 Use the native custom-agent workflow in this repo:
 
-- Switch to `@kindling` in Copilot Chat for the full ideation → planning → story flow.
+- Switch to `@kindling` in GitHub Copilot Chat for the full ideation → planning → story flow.
 - Use `@idea-generator` for fast hackathon concepts, `@implementation-plan` for a 3-step build plan, and `@demo-storyteller` for a short pitch and story arc.
-- The four custom agents live in `.github/agents/` and are switchable directly in Copilot Chat.
+- The four custom agents live in `.github/agents/` and are switchable directly in GitHub Copilot Chat.
 
 Prefer the custom agents for handoffs and keep the first demo small and visible.
 

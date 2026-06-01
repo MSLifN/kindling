@@ -6,7 +6,7 @@ Vibe coding is about moving from idea to demo with as little friction as possibl
 
 - Start with one user problem.
 - Keep the first version visible and simple.
-- Let Copilot help with iteration, not perfect architecture.
+- Let GitHub Copilot help with iteration, not perfect architecture.
 - Use Foundry for the real AI piece when the demo needs a live model or agent.
 
 ## Hackathon rule of thumb

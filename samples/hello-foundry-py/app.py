@@ -2,6 +2,7 @@ import os
 import sys
 
 try:
+    from dotenv import load_dotenv
     from openai import AzureOpenAI
 except ImportError as exc:
     print("Missing dependency: run 'pip install -r requirements.txt' first.")
@@ -9,6 +10,7 @@ except ImportError as exc:
 
 
 def main() -> None:
+    load_dotenv()
     endpoint = os.getenv("AZURE_OPENAI_ENDPOINT", "").strip()
     api_key = os.getenv("AZURE_OPENAI_API_KEY", "").strip()
     deployment_name = os.getenv("AZURE_OPENAI_DEPLOYMENT_NAME", "").strip()

@@ -34,7 +34,7 @@ points, not promises that the projects stay frozen.
 
 - **awesome-copilot** — community-curated custom agents, instructions,
   skills, hooks, and plugins for GitHub Copilot. Install via the
-  marketplace registered in Copilot CLI / VS Code:
+  marketplace registered in GitHub Copilot CLI / VS Code:
   `copilot plugin install <name>@awesome-copilot`
   https://github.com/github/awesome-copilot
   https://awesome-copilot.github.com

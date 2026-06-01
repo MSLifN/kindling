@@ -1,6 +1,5 @@
-# Kindling Copilot instructions
-
-This repo is a hackathon ideation kit for Copilot + Foundry Toolkit.
+# Kindling GitHub Copilot instructions
+This repo is a hackathon ideation kit for GitHub Copilot + Foundry Toolkit.
 
 Always prefer the smallest demoable change that a team can explain in under 30 seconds.
 
