@@ -91,11 +91,12 @@ resource chatModel 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01'
   }
 }
 
-output environmentName string = environmentName
-output location string = location
-output logAnalyticsWorkspaceId string = logAnalyticsWorkspace.id
-output applicationInsightsConnectionString string = appInsights.properties.ConnectionString
-output foundryAccountName string = aiFoundry.name
-output foundryProjectName string = aiProject.name
-output foundryProjectEndpoint string = 'https://${aiFoundry.properties.customSubDomainName}.services.ai.azure.com/api/projects/${aiProject.name}'
-output chatModelDeploymentName string = chatModel.name
+output FOUNDRY_PROJECT_ENDPOINT string = 'https://${aiFoundry.properties.customSubDomainName}.services.ai.azure.com/api/projects/${aiProject.name}'
+output AZURE_OPENAI_ENDPOINT string = aiFoundry.properties.endpoint
+output AZURE_OPENAI_DEPLOYMENT_NAME string = chatModel.name
+output APPLICATIONINSIGHTS_CONNECTION_STRING string = appInsights.properties.ConnectionString
+output AZURE_AIFOUNDRY_NAME string = aiFoundry.name
+output AZURE_AIFOUNDRY_PROJECT_NAME string = aiProject.name
+output AZURE_LOG_ANALYTICS_WORKSPACE_ID string = logAnalyticsWorkspace.id
+output AZURE_LOCATION string = location
+output AZURE_ENV_NAME string = environmentName

@@ -32,11 +32,29 @@ Application Insights.
 3. When prompted, pick a region close to your team that supports the Foundry
    Agent Service and `gpt-4.1-mini`. EU teams: `swedencentral`. US teams:
    `eastus2`. Full list: [Azure OpenAI Responses API supported regions](https://learn.microsoft.com/azure/ai-foundry/openai/how-to/responses#supported-regions).
-4. `azd up` prints the deployed resource names. Note the **Foundry account
-   name** and **project name**.
-5. In the Foundry portal, open the project and create an agent against the
-   `gpt-4.1-mini` deployment (steps 2–4 of Path A).
-6. Continue from step 5 of Path A to wire `.env` and run the sample.
+4. Bootstrap your local `.env` from the deployment outputs:
+   ```powershell
+   azd env get-values | Out-File -FilePath .env -Encoding utf8
+   ```
+   ```bash
+   azd env get-values > .env
+   ```
+   This writes `FOUNDRY_PROJECT_ENDPOINT`, `AZURE_OPENAI_ENDPOINT`,
+   `AZURE_OPENAI_DEPLOYMENT_NAME`, and a few others directly into `.env`.
+5. Fetch the Azure OpenAI key separately (Bicep does not output secrets):
+   ```bash
+   az cognitiveservices account keys list \
+     --name "$(azd env get-value AZURE_AIFOUNDRY_NAME)" \
+     --resource-group "$(azd env get-value AZURE_RESOURCE_GROUP)" \
+     --query key1 -o tsv
+   ```
+   Add the result to `.env` as `AZURE_OPENAI_API_KEY=...`.
+6. Run `samples/hello-foundry-py/app.py` to confirm the model deployment is
+   reachable from code.
+7. In the [Foundry portal](https://ai.azure.com), open the project and
+   create a prompt agent against the `gpt-4.1-mini` deployment
+   (steps 2–4 of Path A). Add `FOUNDRY_AGENT_NAME=<agent-name>` to `.env`.
+8. Run `samples/hello-agent-py/app.py` to confirm the agent wiring.
 
 ## Success criterion
 

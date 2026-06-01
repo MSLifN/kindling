@@ -26,12 +26,13 @@ Two layers, that's it:
    demoable.
 2. **Going further** — when the demo becomes a product, see
    `docs/05-going-further.md` for curated external projects (Agent
-   Framework, Azure AI landing zone, Citadel governance, awesome-copilot).
+   Framework, Azure AI landing zone, Citadel governance, and other
+   community resources).
 
 ## Setup
 
 1. Open this folder in VS Code.
-2. Install the recommended extensions from .vscode/extensions.json.
+2. Install the recommended extensions from `.vscode/extensions.json` — GitHub Copilot, Foundry Toolkit, Python, and Azure GitHub Actions.
    - Terminal option:
      ```powershell
      Get-Content .\.vscode\extensions.json -Raw | ConvertFrom-Json | Select-Object -ExpandProperty recommendations | ForEach-Object { code --install-extension $_ }
@@ -49,7 +50,7 @@ Two layers, that's it:
 
 1. Pick a starter idea from `starter-ideas/`.
 2. Switch to the `@kindling` custom agent in GitHub Copilot Chat, then follow the handoff buttons through ideation → planning → demo story.
-3. Validate with `samples/`.
+3. Validate your environment by running the samples in `samples/` — they prove that the code GitHub Copilot suggests can actually reach Foundry end to end.
 4. Move to `docs/05-going-further.md` for curated external references and `docs/06-planning-team-setup.md` for organizer setup when the spark becomes a shared effort.
 
 Tip: open the Command Palette and run “Chat: Open Customizations” to browse the custom agents this kit ships.

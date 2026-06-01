@@ -13,6 +13,30 @@ Pre-create the following shared resources before participants arrive:
 - one Application Insights / Log Analytics workspace
 - one storage account only if file-based demos are needed
 
+## Model deployment quota — request early
+
+This is the single thing most likely to break a hackathon day. Each Foundry
+project uses Azure OpenAI quota measured in **thousands of tokens per
+minute (TPM)** per region per subscription. With ten teams hitting
+`gpt-4.1-mini` GlobalStandard in the same region, default quota disappears
+fast.
+
+Before the event:
+
+1. Decide which region the event uses (EU teams: `swedencentral`; US
+   teams: `eastus2`).
+2. Estimate worst-case TPM: number of teams × peak rate per team.
+   For a hackathon, 10 TPM per team is usually enough for `gpt-4.1-mini`.
+3. Check current quota with:
+   ```bash
+   az cognitiveservices usage list --location <region>
+   ```
+4. If you're short, [request a quota increase](https://learn.microsoft.com/azure/ai-foundry/openai/quotas-limits#how-to-request-increases-to-the-default-quotas-and-limits)
+   at least a week ahead — approval can take days.
+5. If you're sharing one Foundry project across teams, you only need
+   quota for one deployment. If each team gets their own project (cleaner
+   for grading and cleanup), multiply accordingly.
+
 ## Recommended access model
 
 Give participants access to the shared project and model, not the whole subscription.

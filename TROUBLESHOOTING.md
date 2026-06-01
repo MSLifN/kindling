@@ -25,4 +25,4 @@ az login
 Check that:
 - the Azure OpenAI endpoint and deployment name are correct
 - the Foundry project endpoint is correct
-- the agent ID exists in your Foundry project
+- the agent name (`FOUNDRY_AGENT_NAME`) matches an agent in your Foundry project
