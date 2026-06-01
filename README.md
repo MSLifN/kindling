@@ -18,12 +18,15 @@ This repo is designed for the "AI Ourselves" theme:
 - A 30-minute live-demo path with copy-ready steps.
 - Starter ideas that help teams choose a direction fast.
 
-## Four layers of the kit
+## How to use this kit
 
-1. Spark path — the fast, low-friction demo flow for teams trying the repo for the first time.
-2. Next-level path — a developer-focused layer for teams who want to experiment with Microsoft Agent Framework and richer local orchestration.
-3. Azure platform path — an extra layer for teams who want to extend the prototype into an Azure AI landing zone and deploy with azd.
-4. Governance path — for teams who want to harden the prototype with Citadel-style governance, observability, and compliance patterns before scaling.
+Two layers, that's it:
+
+1. **Spark path (this kit)** — ideate fast in Copilot Chat, validate with
+   the samples, demo in 30 minutes.
+2. **Going further** — when the demo becomes a product, see
+   `docs/05-going-further.md` for curated external projects (Agent
+   Framework, Azure AI landing zone, Citadel governance, awesome-copilot).
 
 ## 5-minute setup
 
@@ -46,14 +49,16 @@ This repo is designed for the "AI Ourselves" theme:
 1. Pick a starter idea from `starter-ideas/`.
 2. Switch to the `@kindling` custom agent in Copilot Chat, then follow the handoff buttons through ideation → planning → demo story.
 3. Validate with `samples/`.
-4. Move to the advanced docs in `docs/` if you want to deepen the implementation.
+4. Move to `docs/05-going-further.md` for curated external references and `docs/06-planning-team-setup.md` for organizer setup when the spark becomes a shared effort.
 
 Tip: open the Command Palette and run “Chat: Open Customizations” to browse the custom agents this kit ships.
 
-## Next-level paths
+## More docs
 
-- For developer experiments: see `docs/05-agent-framework-next-level.md`.
-- For Azure deployment and landing-zone thinking: see `docs/06-azure-ai-landing-zone-azd.md`.
-- For governance, observability, and production-hardening ideas: see `docs/07-citadel-governance-path.md`.
-- For hackathon planning and team access setup: see `docs/08-planning-team-setup.md`.
+- `docs/01-vibe-coding-101.md` — fast prototyping principles
+- `docs/02-foundry-toolkit-tour.md` — orient in VS Code
+- `docs/03-deploy-easiest-path.md` — minimal Foundry Agent Service deploy
+- `docs/04-event-criteria.md` — slot for your hackathon's judging criteria
+- `docs/05-going-further.md` — where to go when the spark catches
+- `docs/06-planning-team-setup.md` — RBAC and shared resources for organizers
 

@@ -13,7 +13,7 @@ The simplest route is to use Foundry Agent Service and deploy the smallest versi
 
 The deployed version should be easy to explain, easy to refresh, and easy to show to a live audience.
 
-## Next-level extensions
+## When you outgrow this deployment
 
-- If you want richer developer orchestration, use `docs/05-agent-framework-next-level.md`.
-- If you want a production-oriented Azure path, use `docs/06-azure-ai-landing-zone-azd.md`.
+For richer orchestration, Azure-platform deployment patterns, governance,
+and other directions beyond the spark, see `docs/05-going-further.md`.
