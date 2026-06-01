@@ -2,7 +2,7 @@
 
 A small repo that lights your hackathon fire.
 
-Kindling is a reusable starter kit for building AI tools with Copilot + Foundry in one focused, low-friction repo. It keeps the "AI Ourselves" theme practical: bring the spark, build fast, and leave with something demoable.
+Kindling is a reusable starter kit for building AI tools with Copilot + Foundry Toolkit in one focused, low-friction repo. It keeps the "AI Ourselves" theme practical: bring the spark, build fast, and leave with something demoable.
 
 ## Why this kit exists
 
@@ -13,7 +13,7 @@ This repo is designed for the "AI Ourselves" theme:
 
 ## What is inside
 
-- Agent prompts for idea generation, planning, storytelling, and orchestration.
+- Custom agents in `.github/agents/` for Copilot Chat handoffs, plus native slash commands for quick idea generation, planning, and storytelling.
 - Ready-to-run sample code for a Foundry model call and an agent-service call.
 - A 30-minute live-demo path with copy-ready steps.
 - Starter ideas mapped to award categories so teams can choose a direction fast.
@@ -44,9 +44,11 @@ This repo is designed for the "AI Ourselves" theme:
 ## Recommended flow
 
 1. Pick a starter idea from `starter-ideas/`.
-2. Use the agents in `agents/` to shape the concept.
+2. Switch to the `@kindling` custom agent in Copilot Chat, then follow the handoff buttons through ideation → planning → demo story.
 3. Validate with `samples/`.
 4. Move to the advanced docs in `docs/` if you want to deepen the implementation.
+
+Tip: open the Command Palette and run “Chat: Open Customizations” to browse the custom agents and prompt files this kit ships.
 
 ## Next-level paths
 

@@ -16,9 +16,9 @@ Pick one of these:
 - `starter-ideas/data-buddy.md`
 - `starter-ideas/personal-knowledge-bot.md`
 
-## 2. Ask the agent to define the first pulse (5 minutes)
+## 2. Switch into the custom-agent flow (5 minutes)
 
-Use the agent prompts in `agents/` to:
+Open Copilot Chat, select the `@kindling` custom agent, describe the rough idea, and use the handoff buttons to move through the kit:
 - sharpen the use case
 - describe the user value
 - identify the one demo action the user can see immediately
