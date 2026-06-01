@@ -10,25 +10,27 @@ points, not promises that the projects stay frozen.
 - **Microsoft Agent Framework** — code-first agent orchestration when
   you outgrow prompt-and-tool flows. Good fit when you want a reusable
   app pattern instead of a prompt-only prototype.
-  <!-- TODO: add current canonical link -->
+  https://github.com/microsoft/agent-framework
+  https://learn.microsoft.com/agent-framework/
 
 ## Deploy with repeatable infrastructure
 
 - **Azure AI Foundry landing zone + azd** — repeatable deployment,
   environment separation, identity, and connectivity guardrails.
   Use when the goal shifts from local demo to shared environment.
-  <!-- TODO: add current canonical link -->
+  https://github.com/Azure/AI-Landing-Zones
 
 ## Govern at scale
 
 - **Citadel reference architecture** — observability, policy enforcement,
   cost controls, and accountable agent identity for production AI.
   Use when "demo this" becomes "run this safely at scale."
-  <!-- TODO: add current canonical link -->
+  https://github.com/Azure-Samples/foundry-citadel-platform
 
 - **Agent Governance Toolkit** — in-process runtime policy enforcement
   for sensitive agent actions. Pairs with the Citadel patterns above.
-  <!-- TODO: add current canonical link -->
+  https://github.com/microsoft/agent-governance-toolkit
+  https://microsoft.github.io/agent-governance-toolkit
 
 ## Extend GitHub Copilot itself
 

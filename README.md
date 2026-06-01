@@ -14,8 +14,7 @@ This repo is designed for the "AI Ourselves" theme:
 ## What is inside
 
 - Custom agents in `.github/agents/` for GitHub Copilot Chat handoffs and quick idea generation, planning, and storytelling.
-- Ready-to-run sample code for a Foundry model call and an agent-service call.
-- Hello samples that verify your Foundry and agent setup in one run.
+- Two ready-to-run hello samples — one for an Azure OpenAI model call and one for a Foundry agent — that verify your setup end to end.
 - Starter ideas that help teams choose a direction fast.
 
 ## How to use this kit
@@ -39,10 +38,12 @@ Two layers, that's it:
      ```
      If `code` is not on PATH, run “Shell Command: Install 'code' command in PATH” once in VS Code first.
 3. Copy `.env.sample` to `.env` and fill in the required values.
-4. Install the Python dependencies with `py -3.12 -m pip install -r requirements.txt`.
-5. Run the samples:
-   - `py -3.12 samples/hello-foundry-py/app.py`
-   - `py -3.12 samples/hello-agent-py/app.py`
+4. Install the Python dependencies:
+   - **Windows:** `py -3.12 -m pip install -r requirements.txt`
+   - **macOS / Linux:** `python3 -m pip install -r requirements.txt`
+5. Run the samples (use `py -3.12` on Windows or `python3` on macOS / Linux):
+   - `samples/hello-foundry-py/app.py`
+   - `samples/hello-agent-py/app.py`
 
 ## Recommended flow
 

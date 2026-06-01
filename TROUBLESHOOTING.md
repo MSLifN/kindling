@@ -4,10 +4,14 @@
 If the sample prints that a setting is missing, copy `.env.sample` to `.env` and fill in the values you need.
 
 ## Python packages not found
-Run:
+Run one of:
 
 ```powershell
 py -3.12 -m pip install -r requirements.txt
+```
+
+```bash
+python3 -m pip install -r requirements.txt
 ```
 
 ## Azure login needed for agent samples
