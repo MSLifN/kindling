@@ -2,33 +2,34 @@
 
 A small repo that lights your hackathon fire.
 
-Kindling is a reusable starter kit for building AI tools with Copilot + Foundry Toolkit in one focused, low-friction repo. It keeps the "AI Ourselves" theme practical: bring the spark, build fast, and leave with something demoable.
+Kindling is a reusable starter kit for building AI tools with GitHub Copilot + Foundry Toolkit in one focused, low-friction repo. It keeps the "AI Ourselves" theme practical: bring the spark, build fast, and leave with something demoable.
 
 ## Why this kit exists
 
 This repo is designed for the "AI Ourselves" theme:
 - Start with a working idea in minutes.
-- Use Copilot and Foundry Toolkit to prototype an agent or model flow quickly.
+- Use GitHub Copilot and Foundry Toolkit to prototype an agent or model flow quickly.
 - Keep the path to a live demo short, simple, and repeatable.
 
 ## What is inside
 
-- Custom agents in `.github/agents/` for Copilot Chat handoffs and quick idea generation, planning, and storytelling.
+- Custom agents in `.github/agents/` for GitHub Copilot Chat handoffs and quick idea generation, planning, and storytelling.
 - Ready-to-run sample code for a Foundry model call and an agent-service call.
-- A 30-minute live-demo path with copy-ready steps.
+- Hello samples that verify your Foundry and agent setup in one run.
 - Starter ideas that help teams choose a direction fast.
 
 ## How to use this kit
 
 Two layers, that's it:
 
-1. **Spark path (this kit)** — ideate fast in Copilot Chat, validate with
-   the samples, demo in 30 minutes.
+1. **Spark path (this kit)** — ideate in GitHub Copilot Chat with the
+   `@kindling` agent, validate your setup with the samples, build something
+   demoable.
 2. **Going further** — when the demo becomes a product, see
    `docs/05-going-further.md` for curated external projects (Agent
    Framework, Azure AI landing zone, Citadel governance, awesome-copilot).
 
-## 5-minute setup
+## Setup
 
 1. Open this folder in VS Code.
 2. Install the recommended extensions from .vscode/extensions.json.
@@ -42,12 +43,11 @@ Two layers, that's it:
 5. Run the samples:
    - `py -3.12 samples/hello-foundry-py/app.py`
    - `py -3.12 samples/hello-agent-py/app.py`
-6. Start with `QUICKSTART.md` for the stage-ready demo path.
 
 ## Recommended flow
 
 1. Pick a starter idea from `starter-ideas/`.
-2. Switch to the `@kindling` custom agent in Copilot Chat, then follow the handoff buttons through ideation → planning → demo story.
+2. Switch to the `@kindling` custom agent in GitHub Copilot Chat, then follow the handoff buttons through ideation → planning → demo story.
 3. Validate with `samples/`.
 4. Move to `docs/05-going-further.md` for curated external references and `docs/06-planning-team-setup.md` for organizer setup when the spark becomes a shared effort.
 
