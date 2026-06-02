@@ -7,7 +7,7 @@
 
 A small repo that lights your hackathon fire.
 
-![Agent Builder in Foundry Toolkit](docs/assets/agent-builder.gif)
+![Kindling — Hackathon Starter Kit](docs/assets/banner.png)
 
 Kindling is a reusable starter kit for building AI tools with GitHub Copilot + Foundry Toolkit in one focused, low-friction repo. The Foundry Toolkit is Microsoft's VS Code extension for Azure AI Foundry — browse models, test prompts in a playground, and reference the agents you build in your Foundry project. Kindling keeps a hackathon practical: bring the spark, build fast, and leave with something demoable.
 
