@@ -148,6 +148,9 @@ Use `F1` → search **Foundry Toolkit** to see every available command.
 | **Model Catalog** | Browse models from Microsoft Foundry, Foundry Local, GitHub, ONNX, Ollama, OpenAI, Anthropic, Google. Compare side-by-side. |
 | **Playground** | Interactive chat with prompts, parameters, multi-modal inputs. |
 | **Agent Builder** | Prompt engineering, MCP tool integration, production-ready code generation. |
+
+![Agent Builder in action](assets/agent-builder.gif)
+
 | **Agent Inspector** | Debug and visualize agents inside VS Code. |
 | **Tool Catalog** | Connect Foundry and local MCP server tools to your agents. |
 | **Evaluation** | Assess models with built-in evaluators (F1, relevance, similarity, coherence) or custom criteria. |

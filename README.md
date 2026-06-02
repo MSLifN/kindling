@@ -1,6 +1,13 @@
 # Kindling
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![VS Code](https://img.shields.io/badge/VS%20Code-ready-blue?logo=visualstudiocode)](https://code.visualstudio.com/)
+[![Foundry Toolkit](https://img.shields.io/badge/Foundry%20Toolkit-required-purple?logo=microsoft)](https://code.visualstudio.com/docs/intelligentapps/overview)
+[![Python 3.12+](https://img.shields.io/badge/Python-3.12%2B-3776AB?logo=python&logoColor=white)](https://www.python.org/)
+
 A small repo that lights your hackathon fire.
+
+![Agent Builder in Foundry Toolkit](docs/assets/agent-builder.gif)
 
 Kindling is a reusable starter kit for building AI tools with GitHub Copilot + Foundry Toolkit in one focused, low-friction repo. The Foundry Toolkit is Microsoft's VS Code extension for Azure AI Foundry — browse models, test prompts in a playground, and reference the agents you build in your Foundry project. Kindling keeps a hackathon practical: bring the spark, build fast, and leave with something demoable.
 
@@ -59,11 +66,15 @@ Hackathon teams are rarely all engineers. Use the kit where you sit:
      Get-Content .\.vscode\extensions.json -Raw | ConvertFrom-Json | Select-Object -ExpandProperty recommendations | ForEach-Object { code --install-extension $_ }
      ```
      If `code` is not on PATH, run “Shell Command: Install 'code' command in PATH” once in VS Code first.
-4. Decide where your Foundry endpoint comes from
-   `.env`. Read the **Before you start** table at the top of
-   `docs/03-deploy-easiest-path.md` and pick your row:
+4. Complete the Azure prerequisites in
+   `docs/02-foundry-toolkit-tour.md` (section 2) — register resource
+   providers and grant Foundry roles. Skip this if your coordinator
+   already provisioned shared resources.
+5. Decide where your Foundry endpoint comes from. Read the **Before
+   you start** table in `docs/03-deploy-easiest-path.md` and pick
+   your row:
    - **Coordinator-provided values** — paste them into `.env` and
-     jump straight to step 5 below.
+     jump straight to step 7 below.
    - **Self-serve with an existing Foundry project** — follow
      **Path A** in `docs/03-deploy-easiest-path.md`.
    - **Self-serve with `azd up`** — follow **Path B** in
@@ -71,10 +82,10 @@ Hackathon teams are rarely all engineers. Use the kit where you sit:
    - **No Azure access yet** — reach out to your hackathon
      coordinator. While you wait, you can still ideate with
      the **kindling** agent in GitHub Copilot Chat — no Azure required.
-5. Install the Python dependencies:
+6. Install the Python dependencies:
    - **Windows:** `py -3.12 -m pip install -r requirements.txt`
    - **macOS / Linux:** `python3 -m pip install -r requirements.txt`
-6. Run the samples (use `py -3.12` on Windows or `python3` on macOS / Linux):
+7. Run the samples (use `py -3.12` on Windows or `python3` on macOS / Linux):
    - `samples/hello-foundry-py/app.py`
    - `samples/hello-agent-py/app.py`
 
