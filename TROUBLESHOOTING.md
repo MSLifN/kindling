@@ -67,9 +67,9 @@ If the error shows a different object ID than your signed-in account,
 use that exact ID as `<principal-id>`. After the role propagates
 (usually under a minute), retry the operation.
 
-See `docs/03-deploy-easiest-path.md` (Prerequisites section) for the
-full setup, or `docs/06-planning-team-setup.md` if you are an organizer
-assigning roles for multiple teams.
+See `docs/02-foundry-toolkit-tour.md` (section 2 — Azure prerequisites)
+for the full setup, or `docs/06-planning-team-setup.md` if you are an
+organizer assigning roles for multiple teams.
 
 ## Foundry Toolkit not working or features missing
 

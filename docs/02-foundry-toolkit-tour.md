@@ -1,4 +1,4 @@
-# Foundry Toolkit in VS Code
+# Get set up with Foundry Toolkit
 
 Foundry Toolkit is the "build half" of Kindling: GitHub Copilot writes
 the code, Foundry Toolkit gives you the models and agent surface to
@@ -16,7 +16,7 @@ Official docs:
 
 ---
 
-## 1 — Install
+## 1 — Install the extension
 
 1. Install the [.NET Runtime](https://learn.microsoft.com/en-us/dotnet/core/install/)
    (required dependency).
@@ -29,7 +29,74 @@ Official docs:
    [Foundry Local](https://www.foundrylocal.ai/). Verify with
    `Foundry Toolkit: Validate environment prerequisites`.
 
-## 2 — Connect and deploy your first model
+## 2 — Azure prerequisites
+
+Before you connect Foundry Toolkit to Azure, make sure resource
+providers are registered and your identity has the right roles.
+
+### Register resource providers (once per subscription)
+
+```powershell
+az provider register --namespace Microsoft.CognitiveServices --wait
+az provider register --namespace Microsoft.MachineLearningServices --wait
+```
+
+Verify:
+
+```powershell
+az provider show --namespace Microsoft.CognitiveServices --query registrationState -o tsv
+az provider show --namespace Microsoft.MachineLearningServices --query registrationState -o tsv
+```
+
+Both should return `Registered`. You need at least Contributor on the
+subscription to register them — ask your coordinator if you don't have
+it.
+
+### Grant the right Foundry roles
+
+The [official RBAC reference](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
+defines two key roles.
+
+| Who | Role | Scope | Lets you… |
+|---|---|---|---|
+| Every participant | **Foundry User** | Foundry **resource** (account) | Read, create, and interact with agents in any project under this resource |
+| Agent creators / publishers | **Foundry Project Manager** | Foundry **resource** (account) | Create projects, publish Agent Applications, assign the Foundry User role to others |
+
+> Assign at the **resource** scope, not the project scope — it
+> inherits to every project beneath it.
+
+```powershell
+# Get your principal ID
+az ad signed-in-user show --query id -o tsv
+
+# Foundry User (minimum for all users)
+az role assignment create `
+  --assignee-object-id <principal-id> `
+  --assignee-principal-type User `
+  --role "Foundry User" `
+  --scope /subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.CognitiveServices/accounts/<foundry-resource>
+
+# Foundry Project Manager (agent creators / publishers)
+az role assignment create `
+  --assignee-object-id <principal-id> `
+  --assignee-principal-type User `
+  --role "Foundry Project Manager" `
+  --scope /subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.CognitiveServices/accounts/<foundry-resource>
+```
+
+> **Tip — use role GUIDs** in scripts to avoid issues during the
+> Foundry role-rename rollout:
+> Foundry User `53ca6127-db72-4b80-b1b0-d745d6d5456d`,
+> Foundry Project Manager `eadc314b-1a2d-4efa-be10-5d325db5065e`.
+
+Without the right roles you'll see errors like
+`agents/read` (needs Foundry User) or `agents/action`
+(needs Foundry Project Manager).
+
+> **Do not use** `Cognitive Services *` roles for Foundry scenarios —
+> the official docs say those don't apply.
+
+## 3 — Connect and deploy your first model
 
 ### Sign in
 
@@ -61,7 +128,7 @@ programmatic equivalent.
 Right-click the deployed model → **Open code file** → choose SDK,
 language, and auth method. A ready-to-run file opens in a new tab.
 
-## 3 — Know the sidebar
+## 4 — Know the sidebar
 
 The extension view has three sections. Everything you just did above
 lives inside them.
@@ -88,7 +155,7 @@ Use `F1` → search **Foundry Toolkit** to see every available command.
 | **Fine-tuning** | Train models locally (GPU) or in the cloud (Azure Container Apps). |
 | **Model Conversion** | Convert, quantize, optimize models for CPU/GPU/NPU. |
 
-## 4 — Copilot tools for agent development
+## 5 — Copilot tools for agent development
 
 Foundry Toolkit extends GitHub Copilot's **Agent mode** with four
 tools that VS Code can invoke automatically. Open Chat (`Ctrl+Alt+I`),
@@ -109,7 +176,7 @@ when the conversation context calls for them:
 - **microsoft-foundry** — deploys, evaluates, and manages Foundry
   resources end-to-end.
 
-## 5 — Kindling-specific tips
+## 6 — Kindling-specific tips
 
 - Deploy **`gpt-4.1-mini`** (Global Standard, capacity 1) — it's
   cheap, fast, and matches the Bicep default in `infra/main.bicep`.
@@ -129,13 +196,18 @@ when the conversation context calls for them:
 | Extension doesn't appear after install | Restart VS Code; verify it's enabled in the Extensions view. |
 | Sign-in fails / subscriptions don't load | Check Azure account permissions; sign out and back in. |
 | Model deployment fails with quota error | Check subscription quota; request an increase or delete unused deployments. |
+| `agents/read` permission error | Grant **Foundry User** at the Foundry resource scope (see section 2). |
+| `agents/action` permission error | Grant **Foundry Project Manager** at the Foundry resource scope (see section 2). |
 
-## Next steps
+## Further reading
 
 - [Adding generative AI models](https://code.visualstudio.com/docs/intelligentapps/models)
 - [Model Playground](https://code.visualstudio.com/docs/intelligentapps/playground)
 - [Agent Builder](https://code.visualstudio.com/docs/intelligentapps/agentbuilder) and [Agent Inspector](https://code.visualstudio.com/docs/intelligentapps/agent-inspector)
 - [Copilot tools deep-dive](https://code.visualstudio.com/docs/intelligentapps/copilot-tools)
+- [Foundry RBAC reference](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
 
-When the wiring works, continue to `docs/03-deploy-easiest-path.md`
-for the minimal end-to-end deploy.
+---
+
+**Next step →** `docs/03-deploy-easiest-path.md` — build and deploy
+your agent.

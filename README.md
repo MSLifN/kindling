@@ -105,8 +105,8 @@ Tips:
 ## More docs
 
 - `docs/01-vibe-coding-101.md` — fast prototyping with GitHub Copilot
-- `docs/02-foundry-toolkit-tour.md` — Foundry Toolkit + Agent Service quick links
-- `docs/03-deploy-easiest-path.md` — access decision table and minimal Foundry Agent Service deploy
+- `docs/02-foundry-toolkit-tour.md` — install, Azure prerequisites, sidebar tour, and Copilot tools
+- `docs/03-deploy-easiest-path.md` — build and deploy your Foundry agent (Path A or Path B)
 - `docs/04-event-criteria.md` — slot for your hackathon's judging criteria
 - `docs/05-going-further.md` — community projects and deeper GitHub Copilot references
 - `docs/06-planning-team-setup.md` — per-team Foundry projects, RBAC, and shared resources for organizers
