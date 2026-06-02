@@ -52,13 +52,14 @@ Hackathon teams are rarely all engineers. Use the kit where you sit:
 ## Setup
 
 1. Open this folder in VS Code.
-2. Install the recommended extensions from `.vscode/extensions.json` — Foundry Toolkit and Python. (GitHub Copilot is built into VS Code and does not need a separate install.)
+2. Install the [.NET Runtime](https://learn.microsoft.com/en-us/dotnet/core/install/) if you don't already have it — Foundry Toolkit requires it.
+3. Install the recommended extensions from `.vscode/extensions.json` — Foundry Toolkit and Python. (GitHub Copilot is built into VS Code and does not need a separate install.)
    - Terminal option:
      ```powershell
      Get-Content .\.vscode\extensions.json -Raw | ConvertFrom-Json | Select-Object -ExpandProperty recommendations | ForEach-Object { code --install-extension $_ }
      ```
      If `code` is not on PATH, run “Shell Command: Install 'code' command in PATH” once in VS Code first.
-3. Decide where your Foundry endpoint comes from before you touch
+4. Decide where your Foundry endpoint comes from
    `.env`. Read the **Before you start** table at the top of
    `docs/03-deploy-easiest-path.md` and pick your row:
    - **Coordinator-provided values** — paste them into `.env` and
@@ -70,10 +71,10 @@ Hackathon teams are rarely all engineers. Use the kit where you sit:
    - **No Azure access yet** — reach out to your hackathon
      coordinator. While you wait, you can still ideate with
      the **kindling** agent in GitHub Copilot Chat — no Azure required.
-4. Install the Python dependencies:
+5. Install the Python dependencies:
    - **Windows:** `py -3.12 -m pip install -r requirements.txt`
    - **macOS / Linux:** `python3 -m pip install -r requirements.txt`
-5. Run the samples (use `py -3.12` on Windows or `python3` on macOS / Linux):
+6. Run the samples (use `py -3.12` on Windows or `python3` on macOS / Linux):
    - `samples/hello-foundry-py/app.py`
    - `samples/hello-agent-py/app.py`
 

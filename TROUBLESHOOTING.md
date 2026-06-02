@@ -71,6 +71,16 @@ See `docs/03-deploy-easiest-path.md` (Prerequisites section) for the
 full setup, or `docs/06-planning-team-setup.md` if you are an organizer
 assigning roles for multiple teams.
 
+## Foundry Toolkit not working or features missing
+
+Foundry Toolkit requires the [.NET Runtime](https://learn.microsoft.com/en-us/dotnet/core/install/). If the extension loads but behaves unexpectedly (greyed-out features, commands not found, sidebar not populating), check whether .NET is installed:
+
+```powershell
+dotnet --version
+```
+
+If the command is not found, install .NET and restart VS Code.
+
 ## Missing resource provider registration
 
 If Azure CLI or the Foundry Toolkit reports that a resource provider is
