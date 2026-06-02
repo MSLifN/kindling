@@ -15,6 +15,9 @@ venv/
 # Local tooling
 node_modules/
 
+# Foundry Toolkit scratch agents
+my-agent-*/
+
 # Azure local state
 .azure/*
 !.azure/.gitignore
