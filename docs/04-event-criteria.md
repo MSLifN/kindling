@@ -12,4 +12,4 @@ Common patterns we see across hackathons:
 - Presentation and demo quality
 
 Whatever your organizers publish, that's what matters. Use the kit's
-`@demo-storyteller` agent and `starter-ideas/` to shape your build around it.
+**demo-storyteller** agent and `starter-ideas/` to shape your build around it.

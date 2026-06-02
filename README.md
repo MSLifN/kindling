@@ -25,7 +25,7 @@ This repo is designed for short-fuse hackathons where you have hours, not weeks:
 Two layers, that's it:
 
 1. **Spark path (this kit)** — ideate in GitHub Copilot Chat with the
-   `@kindling` agent, validate your setup with the samples, build something
+   **kindling** agent, validate your setup with the samples, build something
    demoable.
 2. **Going further** — when the demo becomes a product, see
    `docs/05-going-further.md` for curated external projects (Agent
@@ -38,7 +38,7 @@ Hackathon teams are rarely all engineers. Use the kit where you sit:
 
 - **Engineers** — follow the Setup section below to install dependencies
   and validate the samples, then build with GitHub Copilot Chat
-  (`@kindling`) and the Foundry Toolkit.
+  (select the **kindling** agent) and the Foundry Toolkit.
 - **PMs and customer-facing roles** — read `starter-ideas/` for build
   inspiration, and lift the prompts from the agent files in
   `.github/agents/` into any GitHub Copilot Chat session as reusable
@@ -52,7 +52,7 @@ Hackathon teams are rarely all engineers. Use the kit where you sit:
 ## Setup
 
 1. Open this folder in VS Code.
-2. Install the recommended extensions from `.vscode/extensions.json` — GitHub Copilot, Foundry Toolkit, and Python.
+2. Install the recommended extensions from `.vscode/extensions.json` — Foundry Toolkit and Python. (GitHub Copilot is built into VS Code and does not need a separate install.)
    - Terminal option:
      ```powershell
      Get-Content .\.vscode\extensions.json -Raw | ConvertFrom-Json | Select-Object -ExpandProperty recommendations | ForEach-Object { code --install-extension $_ }
@@ -69,7 +69,7 @@ Hackathon teams are rarely all engineers. Use the kit where you sit:
      `docs/03-deploy-easiest-path.md`.
    - **No Azure access yet** — reach out to your hackathon
      coordinator. While you wait, you can still ideate with
-     `@kindling` in GitHub Copilot Chat — no Azure required.
+     the **kindling** agent in GitHub Copilot Chat — no Azure required.
 4. Install the Python dependencies:
    - **Windows:** `py -3.12 -m pip install -r requirements.txt`
    - **macOS / Linux:** `python3 -m pip install -r requirements.txt`
@@ -80,16 +80,23 @@ Hackathon teams are rarely all engineers. Use the kit where you sit:
 ## Recommended flow
 
 1. Pick a starter idea from `starter-ideas/`.
-2. Switch to the `@kindling` custom agent in GitHub Copilot Chat, then follow the handoff buttons through ideation → planning → demo story.
+2. Switch to the **kindling** agent using the agent selector in GitHub Copilot Chat, then follow the handoff buttons through ideation → planning → demo story.
 3. Validate your environment by running the samples in `samples/` — they prove that the code GitHub Copilot suggests can actually reach Foundry end to end.
 4. Move to `docs/05-going-further.md` for curated external references and `docs/06-planning-team-setup.md` for organizer setup when the spark becomes a shared effort.
 
 Tips:
 
-- **Invoking `@kindling`** — in any GitHub Copilot Chat panel in VS Code,
-  type `@` at the prompt and pick `kindling` from the list. The custom
-  agents in `.github/agents/` are loaded by GitHub Copilot in VS Code only
-  — they don't appear in browser GitHub Copilot Chat.
+- **Selecting an agent** — open any GitHub Copilot Chat panel in
+  VS Code and use the **agent selector** (the dropdown at the top of
+  the chat) to pick `kindling` or any of the other custom agents.
+  The custom agents in `.github/agents/` are loaded by GitHub Copilot
+  in VS Code only — they don't appear in browser GitHub Copilot Chat.
+- **Agents not showing up?** — GitHub Copilot is built into VS Code,
+  but its Chat panel must be visible for the agent selector to appear.
+  Open the Command Palette and run "Chat: Open Customizations" to
+  confirm the four agents are detected. If they still don't appear,
+  make sure this workspace folder is the one open in VS Code (the
+  agents live in `.github/agents/` relative to the workspace root).
 - **Browsing the agents** — open the Command Palette and run
   "Chat: Open Customizations" to see all four custom agents this kit
   ships.

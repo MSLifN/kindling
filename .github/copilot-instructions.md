@@ -19,9 +19,9 @@ This repository is a hackathon starter kit.
 
 Use the native custom-agent workflow in this repo:
 
-- Switch to `@kindling` in GitHub Copilot Chat for the full ideation → planning → story flow.
-- Use `@idea-generator` for fast hackathon concepts, `@implementation-plan` for a 3-step build plan, and `@demo-storyteller` for a short pitch and story arc.
-- The four custom agents live in `.github/agents/` and are switchable directly in GitHub Copilot Chat.
+- Switch to the **kindling** agent via the agent selector in GitHub Copilot Chat for the full ideation → planning → story flow.
+- Use **idea-generator** for fast hackathon concepts, **implementation-plan** for a 3-step build plan, and **demo-storyteller** for a short pitch and story arc.
+- The four custom agents live in `.github/agents/` and are selectable from the agent picker in GitHub Copilot Chat.
 
 Prefer the custom agents for handoffs and keep the first demo small and visible.
 

@@ -12,10 +12,95 @@ Before picking a deploy path, figure out which row you're in.
 | **An endpoint, API key, and agent name from your hackathon coordinator** | They pre-provisioned shared resources. Paste those values into `.env`. Skip the rest of this guide. | Copy `.env.sample` to `.env`, paste the values you were given, then run the samples in `samples/`. |
 | **Your own Azure subscription, plus an existing Foundry project** | Reuse the project and add one agent. | **Path A** below. |
 | **Your own Azure subscription, but no Foundry project yet** | Provision a fresh environment with `azd up`. | **Path B** below. |
-| **No Azure access yet** | Reach out to your hackathon coordinator — most run hackathons provision shared resources. | While you wait, you can still ideate with `@kindling` and draft a plan with `@implementation-plan` in GitHub Copilot Chat. Neither needs Azure. |
+| **No Azure access yet** | Reach out to your hackathon coordinator — most run hackathons provision shared resources. | While you wait, you can still ideate with the **kindling** agent and draft a plan with **implementation-plan** in GitHub Copilot Chat. Neither needs Azure. |
 
 If you are unsure which row you are in, ask your coordinator first.
 That saves you provisioning something they are already paying for.
+
+## Prerequisites — resource providers and RBAC
+
+Before you create a Foundry project or publish agents, make sure the
+required Azure resource providers are registered in your subscription
+and your identity has the right role.
+
+### 1. Register resource providers (once per subscription)
+
+```powershell
+az provider register --namespace Microsoft.CognitiveServices --wait
+az provider register --namespace Microsoft.MachineLearningServices --wait
+```
+
+Verify with:
+
+```powershell
+az provider show --namespace Microsoft.CognitiveServices --query registrationState -o tsv
+az provider show --namespace Microsoft.MachineLearningServices --query registrationState -o tsv
+```
+
+Both should return `Registered`. If they don't, you may need
+subscription-level Contributor or Owner to register them — ask your
+coordinator.
+
+### 2. Grant the right Foundry roles
+
+The [official RBAC reference](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
+defines two scopes and two key roles.
+
+| Who | Role | Scope | Lets you… |
+|---|---|---|---|
+| Every participant | **Foundry User** | Foundry **resource** (account) | Read, create, and interact with agents in any project under this resource |
+| Agent creators / publishers | **Foundry Project Manager** | Foundry **resource** (account) | Create projects, publish Agent Applications, assign the Foundry User role to others |
+
+> Assign **Foundry User at the resource scope**, not the project scope.
+> Resource-scope assignments inherit to every project beneath it, which
+> is simpler and matches the docs' recommended minimum.
+
+Without the resource-scope Foundry User role you will see:
+
+> Identity does not have permissions for
+> Microsoft.MachineLearningServices/workspaces/agents/read
+
+Without Foundry Project Manager you will see:
+
+> Identity does not have permissions for
+> Microsoft.MachineLearningServices/workspaces/agents/action
+
+> **Do not use** `Cognitive Services *` roles for Foundry scenarios.
+> The official docs explicitly say those roles are designed for
+> accessing AI Services resources directly and don't apply to Foundry.
+
+```powershell
+# Get your principal ID
+az ad signed-in-user show --query id -o tsv
+
+# Foundry User on the resource scope (minimum for all users)
+az role assignment create `
+  --assignee-object-id <principal-id> `
+  --assignee-principal-type User `
+  --role "Foundry User" `
+  --scope /subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.CognitiveServices/accounts/<foundry-resource>
+
+# Foundry Project Manager on the resource scope (agent creators / publishers)
+az role assignment create `
+  --assignee-object-id <principal-id> `
+  --assignee-principal-type User `
+  --role "Foundry Project Manager" `
+  --scope /subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.CognitiveServices/accounts/<foundry-resource>
+```
+
+> **Tip — use role GUIDs** in scripts to avoid issues during the
+> Foundry role-rename rollout:
+> Foundry User `53ca6127-db72-4b80-b1b0-d745d6d5456d`,
+> Foundry Project Manager `eadc314b-1a2d-4efa-be10-5d325db5065e`.
+
+Assign the roles after the Foundry resource exists but before you try
+to open, load, create, or publish agents.
+
+If you used `azd up` (Path B), the subscription, resource group, and
+resource name are in the `azd env get-values` output.
+
+See the [Foundry RBAC reference](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/rbac-azure-ai-foundry)
+for the full role matrix.
 
 ## Path A — Use an agent created in the Foundry portal (truly the easiest)
 

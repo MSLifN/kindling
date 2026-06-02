@@ -50,43 +50,85 @@ Before the event:
    the whole event in one calculation — you do not need to multiply by
    number of teams.
 
+## Resource provider registration
+
+Before creating Foundry resources, make sure both providers are
+registered in the target subscription. This only needs to happen once
+per subscription, but missing it blocks every downstream step.
+
+```bash
+az provider register --namespace Microsoft.CognitiveServices --wait
+az provider register --namespace Microsoft.MachineLearningServices --wait
+```
+
+Verify with:
+
+```bash
+az provider show --namespace Microsoft.CognitiveServices --query registrationState -o tsv
+az provider show --namespace Microsoft.MachineLearningServices --query registrationState -o tsv
+```
+
+Both should return `Registered`. If they don't, the person running
+the command needs at least Contributor on the subscription.
+
 ## Recommended access model
 
-Give participants access to the shared project and model, not the whole subscription.
+Give participants access to the shared Foundry resource and model, not
+the whole subscription. The canonical role list is in the
+[Foundry RBAC reference](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/rbac-azure-ai-foundry).
 
-The canonical role list is in the
-[Azure AI Foundry RBAC reference](https://learn.microsoft.com/en-us/azure/ai-foundry/concepts/rbac-azure-ai-foundry).
-Assign team roles at each team's **project** scope, not at the
-Foundry resource scope, so teams cannot see or modify each other's
-agents.
+> **Do not use** `Cognitive Services *` roles (e.g. Cognitive Services
+> OpenAI User) for Foundry scenarios. The official docs say those roles
+> are for accessing AI Services directly and don't apply to Foundry.
 
 ### Minimum access for most participants
 
-- Foundry User on each team's Foundry **project** scope
-- Cognitive Services OpenAI User on the Azure OpenAI resource
-- Reader on the monitoring resource
+| Role | Scope | Purpose |
+|---|---|---|
+| **Foundry User** | Foundry **resource** (account) | Data-plane access — read, create, and interact with agents in all projects under this resource |
+| Reader | Monitoring resource (App Insights) | View telemetry |
 
-### Deeper access for advanced participants
+Assigning Foundry User at the **resource** scope is the recommended
+minimum in the official docs. The assignment inherits to every project
+beneath the resource.
 
-- Foundry Project Manager on each team's Foundry **project** scope
-- Cognitive Services OpenAI Contributor on the Azure OpenAI resource
+If you need **team isolation** (teams cannot see each other's agents),
+assign Foundry User at each team's **project** scope instead, plus
+Reader at the resource scope so the Foundry Toolkit can list projects.
 
-## Practical rule of thumb
+### Access for participants who will create or publish agents
 
-Assign all Foundry roles at each team's project scope (not the
-Foundry resource scope) so teams cannot see or modify each other's
-agents.
+| Role | Scope | Purpose |
+|---|---|---|
+| **Foundry Project Manager** | Foundry **resource** (account) | Create projects, publish Agent Applications, assign Foundry User to agent identities |
 
-If the goal is quick onboarding for everyone, start with:
+> **Publishing agents requires Foundry Project Manager at the
+> resource (account) scope**, not just the project scope. Without it,
+> participants will see: *"Identity does not have permissions for
+> Microsoft.MachineLearningServices/workspaces/agents/action."*
 
-- Foundry User
-- Cognitive Services OpenAI User
-- Reader on monitoring resources
+### Quick-start: fast onboarding for everyone
 
-If you expect teams to build and iterate more deeply, also add:
+```bash
+# Foundry User at resource scope — covers all data-plane operations
+az role assignment create \
+  --assignee-object-id <principal-id> \
+  --assignee-principal-type User \
+  --role "Foundry User" \
+  --scope /subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.CognitiveServices/accounts/<foundry-resource>
 
-- Foundry Project Manager
-- Cognitive Services OpenAI Contributor
+# Add Foundry Project Manager for agent creators / publishers
+az role assignment create \
+  --assignee-object-id <principal-id> \
+  --assignee-principal-type User \
+  --role "Foundry Project Manager" \
+  --scope /subscriptions/<sub>/resourceGroups/<rg>/providers/Microsoft.CognitiveServices/accounts/<foundry-resource>
+```
+
+> **Tip — use role GUIDs** in scripts to avoid issues during the
+> Foundry role-rename rollout:
+> Foundry User `53ca6127-db72-4b80-b1b0-d745d6d5456d`,
+> Foundry Project Manager `eadc314b-1a2d-4efa-be10-5d325db5065e`.
 
 ## Security notes
 

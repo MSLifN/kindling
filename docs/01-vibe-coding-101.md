@@ -14,8 +14,8 @@ The canonical guidance lives with GitHub:
 
 - **Start with one user problem from `starter-ideas/`.** Don't pick
   a theme; pick a sentence ("I never read meeting summaries").
-- **Use `@kindling` in GitHub Copilot Chat** to frame the idea
-  before you ask GitHub Copilot to write code. The custom agent in
+- **Switch to the kindling agent in GitHub Copilot Chat** to frame the
+  idea before you ask GitHub Copilot to write code. The custom agent in
   `.github/agents/kindling.agent.md` is tuned for the first 15 minutes.
 - **Validate the wiring first.** Run `samples/hello-foundry-py/app.py`
   before you ask GitHub Copilot for the real feature — it removes the
