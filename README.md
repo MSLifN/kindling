@@ -2,11 +2,11 @@
 
 A small repo that lights your hackathon fire.
 
-Kindling is a reusable starter kit for building AI tools with GitHub Copilot + Foundry Toolkit in one focused, low-friction repo. The Foundry Toolkit is Microsoft's VS Code extension for Azure AI Foundry — browse models, test prompts in a playground, and reference the agents you build in your Foundry project. Kindling keeps the "AI Ourselves" theme practical: bring the spark, build fast, and leave with something demoable.
+Kindling is a reusable starter kit for building AI tools with GitHub Copilot + Foundry Toolkit in one focused, low-friction repo. The Foundry Toolkit is Microsoft's VS Code extension for Azure AI Foundry — browse models, test prompts in a playground, and reference the agents you build in your Foundry project. Kindling keeps a hackathon practical: bring the spark, build fast, and leave with something demoable.
 
 ## Why this kit exists
 
-This repo is designed for the "AI Ourselves" theme:
+This repo is designed for short-fuse hackathons where you have hours, not weeks:
 - Start with a working idea in minutes.
 - Use GitHub Copilot and Foundry Toolkit to prototype an agent or model flow quickly.
 - Keep the path to a live demo short, simple, and repeatable.
@@ -15,7 +15,7 @@ This repo is designed for the "AI Ourselves" theme:
 
 - Custom agents in `.github/agents/` for GitHub Copilot Chat handoffs and quick idea generation, planning, and storytelling.
 - Two ready-to-run hello samples — one for an Azure OpenAI model call and one for a Foundry agent — that verify your setup end to end.
-- Three starter ideas for the "AI Ourselves" theme:
+- Three starter ideas for small, practical AI tools you'd actually use yourself:
   - **Data Buddy** — turns "what does this column actually mean?" into a one-line answer.
   - **Meeting Summarizer** — turns "I'll write that up later" into action items already in the channel.
   - **Personal Knowledge Bot** — captures and retrieves your own scattered notes in plain language.
@@ -96,10 +96,10 @@ Tips:
 
 ## More docs
 
-- `docs/01-vibe-coding-101.md` — fast prototyping principles
-- `docs/02-foundry-toolkit-tour.md` — orient in VS Code
-- `docs/03-deploy-easiest-path.md` — minimal Foundry Agent Service deploy
+- `docs/01-vibe-coding-101.md` — fast prototyping with GitHub Copilot
+- `docs/02-foundry-toolkit-tour.md` — Foundry Toolkit + Agent Service quick links
+- `docs/03-deploy-easiest-path.md` — access decision table and minimal Foundry Agent Service deploy
 - `docs/04-event-criteria.md` — slot for your hackathon's judging criteria
-- `docs/05-going-further.md` — where to go when the spark catches
-- `docs/06-planning-team-setup.md` — RBAC and shared resources for organizers
+- `docs/05-going-further.md` — community projects and deeper GitHub Copilot references
+- `docs/06-planning-team-setup.md` — per-team Foundry projects, RBAC, and shared resources for organizers
 

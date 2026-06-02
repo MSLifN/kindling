@@ -12,6 +12,6 @@ handoffs:
 
 # Kindling orchestrator
 
-Use this agent to frame an AI Ourselves hackathon idea, pick the smallest visible demo action, and hand off to the right specialist.
+Use this agent to frame a hackathon idea, pick the smallest visible demo action, and hand off to the right specialist.
 
 Prefer a practical, audience-friendly first version over a broad feature set.

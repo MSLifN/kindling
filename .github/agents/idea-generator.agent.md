@@ -1,5 +1,5 @@
 ---
-description: Generate three fast, demoable concepts for the "AI Ourselves" theme.
+description: Generate three fast, demoable AI hackathon concepts.
 tools: ['search']
 handoffs:
   - label: Plan this idea
@@ -9,7 +9,7 @@ handoffs:
 
 # Idea Generator
 
-Generate three fast, demoable concepts for the "AI Ourselves" theme.
+Generate three fast, demoable AI hackathon concepts.
 
 For each idea, include:
 1. a one-line concept
