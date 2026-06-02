@@ -2,7 +2,7 @@
 
 A small repo that lights your hackathon fire.
 
-Kindling is a reusable starter kit for building AI tools with GitHub Copilot + Foundry Toolkit in one focused, low-friction repo. It keeps the "AI Ourselves" theme practical: bring the spark, build fast, and leave with something demoable.
+Kindling is a reusable starter kit for building AI tools with GitHub Copilot + Foundry Toolkit in one focused, low-friction repo. The Foundry Toolkit is Microsoft's VS Code extension for Azure AI Foundry — browse models, test prompts in a playground, and reference the agents you build in your Foundry project. Kindling keeps the "AI Ourselves" theme practical: bring the spark, build fast, and leave with something demoable.
 
 ## Why this kit exists
 
@@ -15,7 +15,10 @@ This repo is designed for the "AI Ourselves" theme:
 
 - Custom agents in `.github/agents/` for GitHub Copilot Chat handoffs and quick idea generation, planning, and storytelling.
 - Two ready-to-run hello samples — one for an Azure OpenAI model call and one for a Foundry agent — that verify your setup end to end.
-- Starter ideas that help teams choose a direction fast.
+- Three starter ideas for the "AI Ourselves" theme:
+  - **Data Buddy** — turns "what does this column actually mean?" into a one-line answer.
+  - **Meeting Summarizer** — turns "I'll write that up later" into action items already in the channel.
+  - **Personal Knowledge Bot** — captures and retrieves your own scattered notes in plain language.
 
 ## How to use this kit
 
@@ -29,6 +32,23 @@ Two layers, that's it:
    Framework, Azure AI landing zone, Citadel governance, and other
    community resources).
 
+## How your team fits
+
+Hackathon teams are rarely all engineers. Use the kit where you sit:
+
+- **Engineers** — follow the Setup section below to install dependencies
+  and validate the samples, then build with GitHub Copilot Chat
+  (`@kindling`) and the Foundry Toolkit.
+- **PMs and customer-facing roles** — read `starter-ideas/` for build
+  inspiration, and lift the prompts from the agent files in
+  `.github/agents/` into any GitHub Copilot Chat session as reusable
+  templates for ideation, planning, and demo storytelling. No
+  Kindling install required.
+- **Designers and storytellers** — focus on
+  `docs/01-vibe-coding-101.md`, `.github/agents/demo-storyteller.agent.md`,
+  and the demo angle in each starter idea. Shape the user-facing flow that
+  the engineers will wrap code around.
+
 ## Setup
 
 1. Open this folder in VS Code.
@@ -38,7 +58,13 @@ Two layers, that's it:
      Get-Content .\.vscode\extensions.json -Raw | ConvertFrom-Json | Select-Object -ExpandProperty recommendations | ForEach-Object { code --install-extension $_ }
      ```
      If `code` is not on PATH, run “Shell Command: Install 'code' command in PATH” once in VS Code first.
-3. Copy `.env.sample` to `.env` and fill in the required values.
+3. Decide where your Foundry endpoint comes from before you touch `.env`:
+   - **Path A — an existing Foundry project** (organizer-provided, or your
+     team already has one): copy `.env.sample` to `.env`, then follow
+     `docs/03-deploy-easiest-path.md` Path A to fill in the values.
+   - **Path B — provision a fresh environment with `azd up`**: skip the
+     copy. Path B in `docs/03-deploy-easiest-path.md` writes `.env` for
+     you and then walks you through the agent step.
 4. Install the Python dependencies:
    - **Windows:** `py -3.12 -m pip install -r requirements.txt`
    - **macOS / Linux:** `python3 -m pip install -r requirements.txt`
@@ -53,7 +79,15 @@ Two layers, that's it:
 3. Validate your environment by running the samples in `samples/` — they prove that the code GitHub Copilot suggests can actually reach Foundry end to end.
 4. Move to `docs/05-going-further.md` for curated external references and `docs/06-planning-team-setup.md` for organizer setup when the spark becomes a shared effort.
 
-Tip: open the Command Palette and run “Chat: Open Customizations” to browse the custom agents this kit ships.
+Tips:
+
+- **Invoking `@kindling`** — in any GitHub Copilot Chat panel in VS Code,
+  type `@` at the prompt and pick `kindling` from the list. The custom
+  agents in `.github/agents/` are loaded by GitHub Copilot in VS Code only
+  — they don't appear in browser GitHub Copilot Chat.
+- **Browsing the agents** — open the Command Palette and run
+  "Chat: Open Customizations" to see all four custom agents this kit
+  ships.
 
 ## More docs
 

@@ -24,3 +24,10 @@ A tiny sample for validating an agent-service flow against an existing Foundry a
 ## Expected result
 
 The script retrieves your agent by name, opens an OpenAI-compatible conversation against the Foundry project, and prints the agent's reply. This confirms your endpoint, identity, and agent reference are wired correctly.
+
+## Where to next
+
+- Need to create a Foundry agent first? `../../docs/03-deploy-easiest-path.md`
+  Path A walks the portal flow end to end.
+- Want a repeatable shared environment? `../../docs/03-deploy-easiest-path.md`
+  Path B uses `azd up` plus the kit's Bicep.

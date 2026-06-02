@@ -1,3 +1,14 @@
+"""Validate the Kindling kit's Foundry agent wiring.
+
+Reads FOUNDRY_PROJECT_ENDPOINT and FOUNDRY_AGENT_NAME from .env,
+authenticates with DefaultAzureCredential (run 'az login' first),
+retrieves the named agent from your Foundry project, opens a
+conversation, and prints the agent's reply.
+
+If this script prints an agent response, your agent-service path
+works end to end.
+"""
+
 import os
 import sys
 

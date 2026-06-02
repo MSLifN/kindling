@@ -22,3 +22,12 @@ A tiny sample for validating a Foundry model call.
 ## Expected result
 
 You should see a real chat completion from your Azure OpenAI deployment, not just a placeholder message.
+
+## Where to next
+
+- New to the kit? `../../docs/02-foundry-toolkit-tour.md` shows how to
+  deploy a model in the Foundry Toolkit and find the endpoint values
+  this sample needs.
+- Don't have a Foundry project yet? `../../docs/03-deploy-easiest-path.md`
+  walks both Path A (use an existing project) and Path B (provision one
+  with `azd up`).

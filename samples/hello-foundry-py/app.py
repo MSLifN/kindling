@@ -1,3 +1,13 @@
+"""Validate the Kindling kit's Azure OpenAI wiring.
+
+Reads AZURE_OPENAI_ENDPOINT, AZURE_OPENAI_API_KEY, and
+AZURE_OPENAI_DEPLOYMENT_NAME from .env, then sends a single chat
+completion request to your deployed model and prints the reply.
+
+If this script prints a model response, your direct model-call path
+works end to end.
+"""
+
 import os
 import sys
 

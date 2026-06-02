@@ -32,23 +32,39 @@ Application Insights.
 3. When prompted, pick a region close to your team that supports the Foundry
    Agent Service and `gpt-4.1-mini`. EU teams: `swedencentral`. US teams:
    `eastus2`. Full list: [Azure OpenAI Responses API supported regions](https://learn.microsoft.com/azure/ai-foundry/openai/how-to/responses#supported-regions).
-4. Bootstrap your local `.env` from the deployment outputs:
+4. Bootstrap your local `.env` from the deployment outputs.
+
+   > ⚠️ This **replaces** your local `.env`. If you already have one
+   > with values you want to keep, the snippets below back it up to
+   > `.env.backup` first.
+
    ```powershell
+   if (Test-Path .env) { Copy-Item .env .env.backup -Force }
    azd env get-values | Out-File -FilePath .env -Encoding utf8
    ```
+
    ```bash
+   if [ -f .env ]; then cp .env .env.backup; fi
    azd env get-values > .env
    ```
+
    This writes `FOUNDRY_PROJECT_ENDPOINT`, `AZURE_OPENAI_ENDPOINT`,
    `AZURE_OPENAI_DEPLOYMENT_NAME`, and a few others directly into `.env`.
 5. Fetch the Azure OpenAI key separately (Bicep does not output secrets):
-   ```bash
-   az cognitiveservices account keys list \
-     --name "$(azd env get-value AZURE_AIFOUNDRY_NAME)" \
-     --resource-group "$(azd env get-value AZURE_RESOURCE_GROUP)" \
-     --query key1 -o tsv
+
+   ```powershell
+   $accountName = azd env get-value AZURE_AIFOUNDRY_NAME
+   $rg = azd env get-value AZURE_RESOURCE_GROUP
+   az cognitiveservices account keys list --name $accountName --resource-group $rg --query key1 -o tsv
    ```
-   Add the result to `.env` as `AZURE_OPENAI_API_KEY=...`.
+
+   ```bash
+   ACCOUNT_NAME=$(azd env get-value AZURE_AIFOUNDRY_NAME)
+   RG=$(azd env get-value AZURE_RESOURCE_GROUP)
+   az cognitiveservices account keys list --name "$ACCOUNT_NAME" --resource-group "$RG" --query key1 -o tsv
+   ```
+
+   Append the result to `.env` as `AZURE_OPENAI_API_KEY=<the-key>`. 
 6. Run `samples/hello-foundry-py/app.py` to confirm the model deployment is
    reachable from code.
 7. In the [Foundry portal](https://ai.azure.com), open the project and
