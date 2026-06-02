@@ -3,6 +3,20 @@
 The easiest "real" deployment for a hackathon team is **a Foundry agent that
 your demo points at**. There are two paths — pick whichever fits your team.
 
+## Before you start: do you have Azure access?
+
+Before picking a deploy path, figure out which row you're in.
+
+| You have… | What to do | Where to go |
+|---|---|---|
+| **An endpoint, API key, and agent name from your hackathon coordinator** | They pre-provisioned shared resources. Paste those values into `.env`. Skip the rest of this guide. | Copy `.env.sample` to `.env`, paste the values you were given, then run the samples in `samples/`. |
+| **Your own Azure subscription, plus an existing Foundry project** | Reuse the project and add one agent. | **Path A** below. |
+| **Your own Azure subscription, but no Foundry project yet** | Provision a fresh environment with `azd up`. | **Path B** below. |
+| **No Azure access yet** | Reach out to your hackathon coordinator — most run hackathons provision shared resources. | While you wait, you can still ideate with `@kindling` and draft a plan with `@implementation-plan` in GitHub Copilot Chat. Neither needs Azure. |
+
+If you are unsure which row you are in, ask your coordinator first.
+That saves you provisioning something they are already paying for.
+
 ## Path A — Use an agent created in the Foundry portal (truly the easiest)
 
 1. Open your project in the [Microsoft Foundry portal](https://ai.azure.com).

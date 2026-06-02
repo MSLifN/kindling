@@ -52,19 +52,24 @@ Hackathon teams are rarely all engineers. Use the kit where you sit:
 ## Setup
 
 1. Open this folder in VS Code.
-2. Install the recommended extensions from `.vscode/extensions.json` — GitHub Copilot, Foundry Toolkit, Python, and Azure GitHub Actions.
+2. Install the recommended extensions from `.vscode/extensions.json` — GitHub Copilot, Foundry Toolkit, and Python.
    - Terminal option:
      ```powershell
      Get-Content .\.vscode\extensions.json -Raw | ConvertFrom-Json | Select-Object -ExpandProperty recommendations | ForEach-Object { code --install-extension $_ }
      ```
      If `code` is not on PATH, run “Shell Command: Install 'code' command in PATH” once in VS Code first.
-3. Decide where your Foundry endpoint comes from before you touch `.env`:
-   - **Path A — an existing Foundry project** (organizer-provided, or your
-     team already has one): copy `.env.sample` to `.env`, then follow
-     `docs/03-deploy-easiest-path.md` Path A to fill in the values.
-   - **Path B — provision a fresh environment with `azd up`**: skip the
-     copy. Path B in `docs/03-deploy-easiest-path.md` writes `.env` for
-     you and then walks you through the agent step.
+3. Decide where your Foundry endpoint comes from before you touch
+   `.env`. Read the **Before you start** table at the top of
+   `docs/03-deploy-easiest-path.md` and pick your row:
+   - **Coordinator-provided values** — paste them into `.env` and
+     jump straight to step 5 below.
+   - **Self-serve with an existing Foundry project** — follow
+     **Path A** in `docs/03-deploy-easiest-path.md`.
+   - **Self-serve with `azd up`** — follow **Path B** in
+     `docs/03-deploy-easiest-path.md`.
+   - **No Azure access yet** — reach out to your hackathon
+     coordinator. While you wait, you can still ideate with
+     `@kindling` in GitHub Copilot Chat — no Azure required.
 4. Install the Python dependencies:
    - **Windows:** `py -3.12 -m pip install -r requirements.txt`
    - **macOS / Linux:** `python3 -m pip install -r requirements.txt`

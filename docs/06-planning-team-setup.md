@@ -70,3 +70,22 @@ If you expect teams to build and iterate more deeply, also add:
 - Avoid giving everyone Owner unless you truly need that level of access.
 - Use Entra groups instead of assigning permissions one by one.
 - Grant storage access only when a demo genuinely needs file or blob operations.
+
+## Communicate the access mode to participants
+
+The single most common participant friction is "I have access… to what?"
+Decide your model up front and tell every team before the event starts.
+
+- **Shared resources, you provide the values** — send each team
+  the three values they need: `FOUNDRY_PROJECT_ENDPOINT`,
+  `FOUNDRY_AGENT_NAME`, and `AZURE_OPENAI_API_KEY` (plus
+  `AZURE_OPENAI_ENDPOINT` and `AZURE_OPENAI_DEPLOYMENT_NAME` if
+  you want them to call the model directly). Tell them to paste
+  those into `.env` and skip Path B in
+  `docs/03-deploy-easiest-path.md` entirely.
+- **Self-serve, each team uses their own subscription** — say so
+  clearly. They will follow Path A or Path B in
+  `docs/03-deploy-easiest-path.md`.
+- **Mixed** — say which teams get which, ideally before the event.
+  A team that discovers mid-hackathon that they need their own
+  subscription usually does not ship a demo.
